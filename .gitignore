@@ -1,0 +1,4 @@
+__pycache__
+.DS_Store
+Data/npy_train_data
+Data/Train_Data/train
