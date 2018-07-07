@@ -5,7 +5,7 @@ from get_model import get_model, save_model
 from keras.callbacks import ModelCheckpoint, TensorBoard
 
 epochs = 25
-batch_size = 20
+batch_size = 128
 
 def train_model(model, X, X_test, Y, Y_test):
     if not os.path.exists('Data/Checkpoints/'):

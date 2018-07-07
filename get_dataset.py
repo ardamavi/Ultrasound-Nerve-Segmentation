@@ -9,11 +9,11 @@ from sklearn.model_selection import train_test_split
 def get_img(data_path):
     # Getting image array from path:
     img = imread(data_path)
-    img = imresize(img, (100, 100))
+    img = imresize(img, (256, 256))
     return img
 
 def save_img(img, name='mask.tif'):
-    imsave(name, img.reshape(100, 100))
+    imsave(name, img.reshape(256, 256))
 
 def get_dataset(dataset_path='Data/Train_Data/train'):
     # Getting all data from data path:
@@ -28,8 +28,8 @@ def get_dataset(dataset_path='Data/Train_Data/train'):
             if 'mask' in img:
                 continue
             img_path = dataset_path+'/'+img
-            X.append(get_img(img_path).astype('float32').reshape(100, 100, 1)/255.)
-            Y.append(get_img(img_path.replace('.', '_mask.')).astype('float32').reshape(100, 100, 1)/255.)
+            X.append(get_img(img_path).astype('float32').reshape(256, 256, 1)/255.)
+            Y.append(get_img(img_path.replace('.', '_mask.')).astype('float32').reshape(256, 256, 1)/255.)
         X = np.array(X)
         Y = np.array(Y)
         # Create dateset:
